@@ -3,7 +3,7 @@ require 'bundler'
 
 Bundler.require
 
-set :views, File.dirname(__FILE__) + '/views'
+set :views, './views'
 
 require './front'
 run Sinatra::Application
