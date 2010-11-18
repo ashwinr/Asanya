@@ -9,9 +9,13 @@ require 'enru.rb'
 
 Mongoid.configure do |config|
   name = 'translatedb'
-  host = 'localhost'
-  config.master = Mongo::Connection.new.db(name)
-  config.slaves = [ Mongo::Connection.new(host, 27017, :slave_ok => true).db(name) ]
+  host = 'flame.mongohq.com'
+  port = 27079
+  user = 'ashwinraman9'
+  password = '.1jbinoche'
+  config.master = Mongo::Connection.new(host, port).db(name)
+  config.master.authenticate(user, password)
+  config.slaves = [ Mongo::Connection.new(host, port, :slave_ok => true).db(name) ]
   config.persist_in_safe_mode = false
 end
 
