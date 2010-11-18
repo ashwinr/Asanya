@@ -1,0 +1,58 @@
+@mixin none() {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+@mixin container-common($fg, $bg) {
+	@include none;
+	display: table;
+	height: 48%;
+	width: 100%;
+	color: $fg;
+	background-color: $bg;
+}
+
+@mixin position-common {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	text-align: center;
+}
+
+body {
+	margin: 20px;
+	padding: 20px;
+	border: 20px;
+}
+
+#ru-container {
+	@include container-common(black, white);
+}
+
+#en-container {
+	@include container-common(black, white);
+}
+
+#ru-position, #en-position {
+	@include position-common;
+}
+
+#line {
+	height: 1%;
+}
+
+#next {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+
+#about-txt {
+	position: absolute;
+	font-size: 12px;
+	color: white;
+	background-color: gray;
+	height: 2%;
+	right: 5%;
+}
