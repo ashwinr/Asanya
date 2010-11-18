@@ -3,6 +3,7 @@ require 'bundler'
 
 Bundler.require
 
+set :public, './public'
 set :views, './views'
 
 require './front'
