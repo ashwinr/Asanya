@@ -1,0 +1,6 @@
+Asanya (http://asanya.org) is a minimalistic web-app built to learn Ruby, Sinatra, MongoDB, JQuery, HAML and SASS.
+
+A translation task uses a reasonably large list of English words and Google Translate APIs to find corresponding
+Russian translations and inserting both into a Mongo collection.
+
+A Sinatra/Mongoid combo is used as the application framework for the web application.
