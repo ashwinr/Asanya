@@ -1,18 +1,12 @@
-$LOAD_PATH << '.'
-#require 'rubygems'
-#require 'sinatra'
-#require 'mongoid'
-#require 'haml'
-
 require './enru.rb'
 
 configure do
   Mongoid.configure do |config|
+    creds = IO.readlines('./creds');
+    creds.map! { |line| line.chomp() }
     name = 'translatedb'
-    host = 'flame.mongohq.com'
-    port = 27079
-    user = 'ashwinraman9'
-    password = '.1jbinoche'
+    host, port = 'flame.mongohq.com', 27079
+    user, password = creds[0], creds[1]
     config.master = Mongo::Connection.new(host, port).db(name)
     config.master.authenticate(user, password)
     config.slaves = [ Mongo::Connection.new(host, port, :slave_ok => true).db(name) ]
